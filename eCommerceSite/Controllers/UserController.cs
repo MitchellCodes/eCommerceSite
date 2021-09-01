@@ -1,5 +1,6 @@
 ﻿using eCommerceSite.Data;
 using eCommerceSite.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -50,6 +51,12 @@ namespace eCommerceSite.Controllers
 
         public IActionResult Login()
         {
+            // check if user already logged in
+            if (HttpContext.Session.GetInt32("UserId").HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -85,6 +92,7 @@ namespace eCommerceSite.Controllers
             }
 
             // log user into website
+            HttpContext.Session.SetInt32("UserId", account.UserId);
 
             return RedirectToAction("Index", "Home");
         }

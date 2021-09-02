@@ -42,5 +42,20 @@ namespace eCommerceSite.Data
             await _context.SaveChangesAsync(); // executes insert query
             return p;
         }
+
+        public static async Task<Product> GetProductAsync(ProductContext context, int prodId)
+        {
+            Product p = await (from products in context.Products
+                               where products.ProductId == prodId
+                               select products).SingleAsync();
+
+            // METHOD SYNTAX
+
+            //Product p2 = await _context
+            //                .Products
+            //                .Where(prod => prod.ProductId == id)
+            //                .SingleAsync();
+            return p;
+        }
     }
 }

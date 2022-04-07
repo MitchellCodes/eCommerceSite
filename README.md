@@ -6,7 +6,7 @@ Basic eCommerce site to learn ASP.NET Core MVC concepts.
 This is an in-class project for CPW 213.
 
 ## Prerequisites
-- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 - ASP.NET and Web Dev workload if using [Visual Studio](https://visualstudio.microsoft.com/)
 
 ## Helpful Resources Used
